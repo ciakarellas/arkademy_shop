@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: %i[ show edit update destroy ]
+  before_action :set_product, only: [ :show ]
 
   # GET /products or /products.json
   def index
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: "Product was successfully created." }
         
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html { render :new }
         
       end
     end
@@ -41,7 +41,7 @@ class ProductsController < ApplicationController
         format.html { redirect_to @product, notice: "Product was successfully updated." }
         
       else
-        format.html { render :edit, status: :unprocessable_entity }
+        format.html { render :edit }
         
       end
     end
